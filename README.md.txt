@@ -1,5 +1,5 @@
 DEMO VIDEO OF PROJECT
-("")
+("https://drive.google.com/file/d/1CimbDx2ZNKcWZxWL9bNSjFHdrr9iGQM5/view?usp=sharing")
 
 
 
@@ -26,5 +26,4 @@ ML Models Used
 
 
 Demo Video:
-("DEMO")
-
+https://drive.google.com/file/d/1CimbDx2ZNKcWZxWL9bNSjFHdrr9iGQM5/view?usp=sharing
