@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict PM Temperature</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #c9d6ff, #e2e2e2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2 class="text-center mb-4"> Motor Temperature Prediction</h2>
+        <form action="/y_predict" method="POST">
+            {% for field in ['ambient', 'coolant', 'u_d (d-axis voltage)', 'u_q (q-axis voltage)', 'motor_speed', 'i_d(d-axis current)', 'i_q(q-axis current)'] %}
+                <div class="form-group">
+                    <label for="{{ field }}">{{ field.replace('_', ' ').title() }}</label>
+                    <input type="number" step="any" class="form-control" name="{{ field }}" required>
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary btn-block">Predict</button>
+        </form>
+        {% if prediction_text %}
+            <div class="alert alert-success text-center mt-4">
+                {{ prediction_text }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
